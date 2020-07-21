@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Fri May 22 10:28:32 IST 2020
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\nqe00205\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-websocket\\9.0.19\\tomcat-embed-websocket-9.0.19.jar=WEB-INF/lib/tomcat-embed-websocket-9.0.19.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\nqe00205\\.m2\\repository\\org\\springframework\\spring-web\\4.3.5.RELEASE\\spring-web-4.3.5.RELEASE.jar=WEB-INF/lib/spring-web-4.3.5.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\nqe00205\\.m2\\repository\\org\\springframework\\spring-web\\5.1.7.RELEASE\\spring-web-5.1.7.RELEASE.jar=WEB-INF/lib/spring-web-5.1.7.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\nqe00205\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-websocket\\8.5.6\\tomcat-embed-websocket-8.5.6.jar=WEB-INF/lib/tomcat-embed-websocket-8.5.6.jar

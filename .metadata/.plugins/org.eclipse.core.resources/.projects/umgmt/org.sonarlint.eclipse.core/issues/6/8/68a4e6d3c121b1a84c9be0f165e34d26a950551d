@@ -1,0 +1,21 @@
+
+fWeb:AvoidCommentedOutCodeCheckÔ"Remove this commented out code.(§æÍ³şÿÿÿÿHÇ®RMAJORZ
+CODE_SMELL
+\Web:BoldAndItalicTagsCheck1"!Replace this <b> tag by <strong>.(ÄØİ—øÿÿÿÿHÈ®RMINORZBUG
+\Web:ImgWithoutAltCheck2"%Add an "alt" attribute to this image.(Êà“çıÿÿÿÿHÉ®RMINORZBUG
+\Web:BoldAndItalicTagsCheck2"!Replace this <b> tag by <strong>.(Êà“çıÿÿÿÿHÊ®RMINORZBUG
+XWeb:BoldAndItalicTagsCheckp"Replace this <i> tag by <em>.(Ğ“–ØÿÿÿÿÿHË®RMINORZBUG
+eWeb:AvoidCommentedOutCodeCheckB"Remove this commented out code.(ë––ÿÿÿÿÿÿHÌ®RMAJORZ
+CODE_SMELL
+XWeb:BoldAndItalicTagsChecku"Replace this <i> tag by <em>.(«ıœøÿÿÿÿHÍ®RMINORZBUG
+aWeb:AvoidCommentedOutCodeCheckĞ"Remove this commented out code.(Á¿ô˜HÎ®RMAJORZ
+CODE_SMELL
+`Web:AvoidCommentedOutCodeCheckJ"Remove this commented out code.(¾õHÏ®RMAJORZ
+CODE_SMELL
+eWeb:AvoidCommentedOutCodeCheckh"Remove this commented out code.(Ôò±ÕøÿÿÿÿHĞ®RMAJORZ
+CODE_SMELL
+`Web:AvoidCommentedOutCodeCheck"Remove this commented out code.(àƒ¸HÑ®RMAJORZ
+CODE_SMELL
+eWeb:AvoidCommentedOutCodeCheckj"Remove this commented out code.(òò½ÃüÿÿÿÿHÒ®RMAJORZ
+CODE_SMELL
+XWeb:BoldAndItalicTagsCheck“"!Replace this <b> tag by <strong>.(Ó…‰ÑHÓ®RMINORZBUG

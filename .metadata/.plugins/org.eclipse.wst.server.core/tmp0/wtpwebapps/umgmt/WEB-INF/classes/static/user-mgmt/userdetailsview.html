@@ -1,0 +1,150 @@
+<style>
+	
+.ui-menu .ui-menu-item a {
+	height: 10px;
+	font-size: 20px;
+	style: none;
+	width: 100px;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#clickme {
+	border-radius: 0px;
+	border: 1px solid
+}
+
+#clickme:hover {
+	cursor: pointer;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#input {
+	border-radius: 0px;
+	border: 1px solid;
+	height: 0 0 30px;
+}
+
+#input:hover {
+	
+}
+
+#input:active {
+	box-shadow: 0 0 30px;
+}
+
+#input:focus {
+	box-shadow: 0 0 30px;
+}
+
+.ui-autocomplete {
+	background: #c9d4e5;
+	border-color: gray;
+	border-radius: 2px;
+	list-style: none;
+	width: 108px;
+	overflow-y: auto;
+	max-height: 150px;
+}
+
+.dropdown-menu {
+    height: 300px !important;
+}
+</style>
+<section class="content-header" ng-init="initUserDetails() ;loadCheckers()">
+
+	<div class="row">
+		<div class="col-lg-12 col-xs-20">
+			<!-- small box -->
+			<div class="col-md-6">
+				<div class="box box-primary" id="boxx">
+					<h2>&nbsp;&nbsp;&nbsp;{{viewingUser.username}} </h2>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!--<button class="btn btn-primary" ui-sref="usermanagement">
+						<i class="fa fa-arrow-circle-o-left" aria-hidden="true"> Back
+						</i>
+					</button>-->
+					<br>
+					<br>
+					<table class="table table-user-information">
+						<tbody>
+							<tr>
+								<td>Department:</td>
+								<td>N/A</td>
+							</tr>
+							<tr>
+								<td>Hire date:</td>
+								<td>N/A</td>
+							</tr>
+							<tr>
+								<td>Date of Birth</td>
+								<td>N/A</td>
+							</tr>
+							<tr>
+								<td>Roles</td>
+								<td class="row">
+									<div class="col-sm-8" ng-if="viewingProfile == true">
+										<p ng-repeat="role in viewingUser.roles"
+											style="display: inline">
+											<span class="label label-primary">{{role.name}}</span>
+										</p>
+
+									</div><!--
+										ng-click="currentEditingUserRole(viewingUser.id)"-->										
+									<div class="col-sm-8"  ng-if="viewingProfile == false"
+										ng-dropdown-multiselect="viewingUser.username"
+										options="user_roles" selected-model="viewingUser.roles"
+										extra-settings="example13settings" events="userRolesEvents">
+									</div>
+
+									<div class="col-sm-8"  ng-if="change.added.length > 0 || change.removed.length > 0" >
+											<div class="form-group">
+													<label for="checker">Checker:</label> 
+													<select
+														class="form-control" id="check"
+														ng-model="user.checker" required>
+														<option ng-repeat="checker in checkers" ng-value="checker.id">{{checker.name}}</option>
+													</select>
+												</div>
+										<button class="btn btn-primary" ng-click="applyRoleChanges()">Apply changes</button>
+									</div>
+								</td>
+							</tr>
+
+							<tr>
+							<tr>
+								<td>Gender</td>
+								<td>N/A</td>
+							</tr>
+							<tr>
+								<td>Home Address</td>
+								<td>N/A</td>
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td><a href="mailto:info@support.com">{{viewingUser.email}}</a>
+								</td>
+							</tr>
+							<td>Phone Number</td>
+							<td>N/A</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-xs-6"></div>
+		<div class="col-lg-3 col-xs-6"></div>
+		<div class="col-lg-3 col-xs-6"></div>
+	</div>
+
+</section>
+

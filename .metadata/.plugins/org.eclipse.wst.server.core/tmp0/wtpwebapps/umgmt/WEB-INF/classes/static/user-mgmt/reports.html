@@ -1,0 +1,42 @@
+
+<section class="content-header"
+	ng-init="getReportList();getPreviousDate();">
+
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">Report Dashboard</h3>
+			<div style="margin-left: 700px;">
+				<!--<input type="text" style="height: 31px; width:210px;"/>&nbsp;&nbsp;<button type="button" class="btn btn-primary" style="height: 31px;"><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+			  </div>-->
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="example1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Sr.No.</th>
+							<th>Report Name</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="t in reportList">
+							<td>{{$index + 1}}</td>
+							<td>{{t}}</td>
+							<td><button class="btn btn-primary"
+									ng-click="downloadReport(t)" title="DOWNLOAD REPORT!">
+									<i class="{{downloadicon}}" aria-hidden="true"></i>
+								</button>
+								<button class="btn btn-primary" ng-click="viewReport1(t);"
+									title="VIEW REPORT!">
+									<i class="fa fa-eye" aria-hidden="true"></i>
+								</button></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+</section>

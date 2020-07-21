@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="4500" stop-timeout="15" testEnvironment="true" timestamp="20">
+    <list key="modules" value0="IPA::org.eclipse.jst.jee.server:IPA::jst.web::3.1" value1="umgmt::org.eclipse.jst.jee.server:umgmt::jst.web::3.1" value2="usermanagement::org.eclipse.jst.jee.server:usermanagement::jst.web::3.1" value3="DirectDealing::org.eclipse.jst.jee.server:DirectDealing::jst.web::3.1"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="4500" stop-timeout="15" testEnvironment="true" timestamp="3">
+    <list key="modules" value0="DirectDealing::org.eclipse.jst.jee.server:DirectDealing::jst.web::4.0" value1="usermanagement::org.eclipse.jst.jee.server:usermanagement::jst.web::3.1"/>
+  </server>
+</servers>

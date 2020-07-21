@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DerivativeApp">
+<head>
+<!-- <script type="text/javascript">
+	 var accessToken = localStorage.getItem('access-token');
+	  	if(accessToken == null || !accessToken.length){
+	  		window.location.href = "/auth";
+	  	}
+	</script> -->
+
+
+<base href="/DealConsolidationPlatform/user-mgmt/">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Usermanagement | NQ</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	href="components/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="lib/css/ion-icons.css">
+<link rel="stylesheet" href="lib/css/angular-growl.css">
+
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="plugins/select2/select2.min.css">
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+
+
+
+
+
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini"
+	ng-controller="sidemenuController">
+
+	<div class="wrapper">
+		<header class="main-header">
+			<a class="logo" style="background-color: #f2f2f2;">
+				<!-- mini logo for sidebar mini 50x50 pixels --> <span
+				class="logo-mini"><b>axis</b></span> <!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b><img
+						src="dist/img/axis-bank-logo.png"></b></span>
+			</a>
+			<nav class="navbar navbar-static-top">
+				<!-- Sidebar toggle button-->
+				<span
+					style="color: white; font-size: 30px; padding-left: 10px; align: center;">
+					User management </span>
+				<div class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+				</div>
+
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<li class="dropdown user user-menu"><a
+							style="cursor: pointer" class="dropdown-toggle"
+							data-toggle="dropdown"> <!--<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/15c/03b/0e13bfd.png" class="user-image" alt="User Image">-->
+								<span class="hidden-xs">{{logged_in_user.name}} &nbsp; <i
+									class="fa fa-caret-down" aria-hidden="true"></i>&nbsp;&nbsp;
+							</span>
+						</a>
+							<ul class="dropdown-menu">
+								<!-- User image -->
+								<li class="user-header">
+									<!-- <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/15c/03b/0e13bfd.png" class="img-circle" alt="User Image">-->
+									<p>{{logged_in_user.name}}</p>
+								</li>
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div class="pull-left">
+										<a class="btn btn-default btn-flat"
+											ng-click="getUserDetails()">Profile</a>
+									</div>
+									<div class="pull-right">
+									
+										<a
+											onclick="document.cookie='access-token=;Path=/'; window.location.href = '/DealConsolidationPlatform/';"
+											class="btn btn-default btn-flat">Sign out</a>
+									</div>
+								</li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Sidebar -->
+
+		<aside class="main-sidebar">
+
+			<section class="sidebar">
+
+				<ul class="sidebar-menu" ng-repeat="parent in allUserMenu">
+
+
+					<!-- <li class="">&nbsp;</li> -->
+
+					<!-- <li class="treeview"><a
+						href="/lhops"> <i
+							class="fa fa-home"></i> <span>WebOps</span> <span
+							class="pull-right-container"> </span> <i
+							class="fa fa-external-link pull-right-container"></i>
+					</a></li> -->
+					<li class="treeview"><a > <i
+							class="fa fa-home"></i> <span>{{parent.name}}</span> <span
+							class="pull-right-container"> </span>
+					</a>
+						<ul class="treeview-menu" ng-repeat="menu in parent.midMenus">
+							<li class="active"><a > <i
+									class="fa fa-arrow-right"></i> <span>{{menu.name}}</span> <span
+									class="pull-right-container"> </span>
+							</a>
+								<ul class="treeview-menu" >
+									<li ng-repeat="subMenu in menu.subMenus"><a ui-sref="{{subMenu.action}}"><i
+											style="font-size: 10px" class="fa fa-circle"
+											aria-hidden="true"></i>{{subMenu.name}}</a></li>
+								</ul></li>
+
+						</ul>
+					</li>
+
+				</ul>
+			</section>
+
+		</aside>
+		<div class="content-wrapper">
+
+			<section class="content-header"></section>
+			<section class="content">
+				<div growl></div>
+				<div ui-view></div>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Version</b> 0.0.1
+			</div>
+			<strong>Copyright &copy; 2019-2022 <a
+				href="http://neoquant.com">NeoQuant Solutions Pvt. Ltd</a>.
+			</strong> All rights reserved.
+		</footer>
+		<div class="control-sidebar-bg"></div>
+	</div>
+	</div>
+	<div class="se-pre-con"></div>
+	<script src="plugins/jQuery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="components/jquery/dist/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="components/sparklines/sparkline.min.js"></script>
+	<script type="text/javascript" src="components/angular/angular.min.js"></script>
+	<script>
+		$.widget.bridge('uibutton', $.ui.button);
+	</script>
+	<!-- Bootstrap 3.3.6 -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="plugins/fastclick/fastclick.js"></script>
+	<script src="dist/js/app.min.js"></script>
+	<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+	<script src="plugins/flot/jquery.flot.min.js"></script>
+	<script src="plugins/flot/jquery.flot.resize.min.js"></script>
+	<script src="plugins/flot/jquery.flot.pie.min.js"></script>
+	<script src="plugins/flot/jquery.flot.categories.min.js"></script>
+	<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+
+
+	<script src="dist/js/app.min.js"></script>
+	<script type="text/javascript"
+		src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/services/userService.js"></script>
+	<script type="text/javascript" src="js/controller/userController.js"></script>
+	<script type="text/javascript"
+		src="js/controller/fileUploadController.js"></script>
+	<script type="text/javascript" src="js/controller/reportsController.js"></script>
+	<script type="text/javascript" src="js/controller/makerdashController.js"></script>
+	<script type="text/javascript" src="js/controller/groupController.js"></script>
+	<script type="text/javascript" src="js/services/groupService.js"></script>
+	<script type="text/javascript"
+		src="js/services/groupAssignmentService.js"></script>
+	<script type="text/javascript"
+		src="js/controller/groupAssignmentController.js"></script>
+	<script type="text/javascript"
+		src="js/controller/counterPartyController.js"></script>
+	<script type="text/javascript" src="js/controller/roleController.js"></script>
+	<script type="text/javascript" src="js/services/reportService.js"></script>
+	<script type="text/javascript" src="js/services/requestService.js"></script>
+	<script type="text/javascript" src="js/services/commonService.js"></script>
+	<script type="text/javascript" src="js/services/roleService.js"></script>
+	<script type="text/javascript"
+		src="js/services/httpInterceptorService.js"></script>
+	<script type="text/javascript" src="js/services/menuService.js"></script>
+
+	<script type="text/javascript" src="lib/multi-select.js"></script>
+	<script type="text/javascript" src="lib/popover.js"></script>
+	<script type="text/javascript" src="lib/angular-growl.js"></script>
+	<!--<script type="text/javascript" src="lib/autocomplete.js"></script>
+<link rel="stylesheet" src="lib/autocomplete.css"></script>-->
+
+
+	<!-- <script>
+		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip();
+			{
+				PlotPie();
+				PlotBar();
+			}
+			$('#srLink').click(function() {
+				{
+					PlotPie();
+					PlotBar();
+				}
+			});
+
+		});
+
+		function PlotPie() {
+			setTimeout(function() {
+				var donutData = [ {
+					label : "DE",
+					data : 20,
+					color : "blue"
+				}, {
+					label : "HU",
+					data : 40,
+					color : "red"
+				}, {
+					label : "PL",
+					data : 20,
+					color : "green"
+				}, {
+					label : "SE",
+					data : 20,
+					color : "orange"
+				} ];
+				$.plot("#donut-chart", donutData, {
+					series : {
+						pie : {
+							show : true,
+							radius : 1,
+							innerRadius : 0.5,
+							label : {
+								show : true,
+								radius : 2 / 3,
+								formatter : labelFormatter,
+								threshold : 0.1
+							}
+						}
+					},
+					legend : {
+						show : false
+					}
+				});
+			}, 50);
+		}
+
+		function PlotBar() {
+			setTimeout(function() {
+
+				var bar_data = {
+					data : [ [ "Wholesale", 10 ], [ "Energy", 8 ],
+							[ "Gas", 4 ], [ "Oil", 13 ], [ "Petrol", 17 ],
+							[ "Diesel", 9 ] ],
+					color : "green"
+				};
+				$.plot("#bar-chart", [ bar_data ], {
+					grid : {
+						borderWidth : 1,
+						borderColor : "#f3f3f3",
+						tickColor : "red"
+					},
+					series : {
+						bars : {
+							show : true,
+							barWidth : 0.5,
+							align : "center",
+							color : "orange"
+						}
+					},
+					xaxis : {
+						mode : "categories",
+						tickLength : 0
+					}
+				});
+			}, 50);
+		}
+
+		function labelFormatter(label, series) {
+			return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+					+ label + "<br>" + Math.round(series.percent) + "%</div>";
+		}
+	</script>-->
+
+	<!--Place in proper css **IMPORTANT** -->
+	<style>
+.pointLink {
+	cursor: pointer;
+}
+
+.pointLink:hover {
+	transition: all .4s ease-in-out;
+	transform: scale(1.5);;
+}
+
+.ui-menu .ui-menu-item a {
+	height: 10px;
+	font-size: 20px;
+	style: none;
+	width: 100px;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#clickme {
+	border-radius: 0px;
+	border: 1px solid
+}
+
+#clickme:hover {
+	cursor: pointer;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#input {
+	border-radius: 0px;
+	border: 1px solid;
+	height: 0 0 30px;
+}
+
+#input:hover {
+	
+}
+
+#input:active {
+	box-shadow: 0 0 30px;
+}
+
+#input:focus {
+	box-shadow: 0 0 30px;
+}
+
+.ui-autocomplete {
+	background: #f6f6f6;
+	border-color: gray;
+	border-radius: 2px;
+	list-style: none;
+	width: 108px;
+	overflow-y: auto;
+	max-height: 150px;
+	color: black;
+}
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript,
+        if it's not present, don't show loader */
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(/umgmt/user-mgmt/dist/img/loader-64x/axis-loader.gif) center
+		no-repeat #fff;
+	opacity: 0.7;
+}
+
+.icnbox select {
+	color: #000;
+	padding: 6px 2px;
+}
+</style>
+
+
+	<link rel="stylesheet" href="lib/css/app.css">
+</body>
+</html>

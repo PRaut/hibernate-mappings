@@ -1,0 +1,43 @@
+
+<section class="content-header">
+	<h1></h1>
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">Reports Details</h3>
+			&nbsp;&nbsp;
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body" ng-init="getReportList(false)">
+			<table id="example1" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Sr.No.</th>
+						<th>Name</th>
+						<!--<th>Groups</th>	
+                  <th>Reports</th>-->
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="t in reportlist">
+						<td>{{$index + 1}}</td>
+						<td>{{t.reportName}}</td>
+						<!--
+           <td class="text-center"><i class="fa fa-users pointLink" aria-hidden="true"></i></td>	
+           <td class="text-center"><i ng-click="getUserReports(t.id)" class="fa fa-pie-chart pointLink" aria-hidden="true"></i></td>
+                 -->
+						<td>
+							<button class="btn btn-danger" id="disable_{{t.id}}"
+								ng-if="t.isActive != false"
+								ng-click="toggleEnableOrDisableReport(t, 'disable')">Disable</button>
+							<button class="btn btn-primary" id="enable_{{t.id}}"
+								ng-if="t.isActive == false"
+								ng-click="toggleEnableOrDisableReport(t, 'enable')">Enable</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</section>
+
+

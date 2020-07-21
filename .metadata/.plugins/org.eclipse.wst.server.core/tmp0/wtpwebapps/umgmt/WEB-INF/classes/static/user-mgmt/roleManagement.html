@@ -1,0 +1,77 @@
+
+<section class="content-header">
+	<h1></h1>
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">Role Details</h3>
+			&nbsp;&nbsp;
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body" ng-init="getAllRoles();loadCheckers()">
+			<table id="example1" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Sr.No.</th>
+						<th>Name</th>
+						<th>Created on</th>
+						<th>Edit Menus</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="t in roleDetails">
+						<td>{{$index + 1}}</td>
+						<td>{{t.name}}</td>
+						<td>{{t.createdAt}}</td>
+						<td class="pointLink" ng-click="getMenuAssignPage(t)"
+							style="width: 100px; text-align: center"><i
+							class="fa fa-bars" aria-hidden="true"></i></td>
+						<!--
+           <td class="text-center"><i class="fa fa-users pointLink" aria-hidden="true"></i></td>	
+           <td class="text-center"><i ng-click="getUserReports(t.id)" class="fa fa-pie-chart pointLink" aria-hidden="true"></i></td>
+                 -->
+						<!--<td>
+							<button class="btn btn-danger" id="disable_{{t.id}}"
+								ng-if="t.status != false"
+								ng-click="toggleEnableOrDisableRole(t, 'disable')">Disable</button>
+							<button class="btn btn-primary" id="enable_{{t.id}}"
+								ng-if="t.status == false"
+								ng-click="toggleEnableOrDisableRole(t, 'enable')">Enable</button>
+						</td>-->
+
+						<td>
+								<span ng-if="!t.confirm">
+										<button class="btn btn-danger" id="disable_{{t.id}}"
+										ng-if="t.status != false"
+										ng-click="t.confirm=true">Disable</button>
+		
+									
+									<button class="btn btn-primary" id="enable_{{t.id}}"
+										ng-if="t.status == false"
+										ng-click="t.confirm=true">Enable</button>
+								</span>
+								
+	
+									<span class="row" ng-if="t.confirm">
+													<div class="col-sm-6">
+														<label>Checker: </label>
+															<select class="form-control" ng-model="user.checker">
+																<option ng-repeat="checker in checkers" ng-value="checker.id" > {{checker.name}} </option>
+															</select>
+													</div>
+													<div class="col-sm-4" style="margin-top: 24px;">
+															<button class="btn btn-primary" id="enable_{{t.id}}"  ng-click="toggleEnableOrDisableRole(t, (t.status)?'disable':'enable')">Confirm {{(t.isActive)?"disable":"enable"}}</button>
+													</div>
+												<!--
+	ng-click="toggleEnableOrDisableUser(t, 'disable')"
+	ng-click="toggleEnableOrDisableUser(t, 'enable')"
+												-->
+									</span>
+									
+							</td>
+		
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</section>

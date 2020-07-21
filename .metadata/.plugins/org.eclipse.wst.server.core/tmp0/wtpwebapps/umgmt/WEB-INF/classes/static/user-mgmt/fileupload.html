@@ -1,0 +1,76 @@
+
+<script>
+  $('#dtpFilter').datepicker({
+    autoclose: true
+});
+  </script>
+<div class="col-md-8">
+	<!-- Horizontal Form -->
+	<div class="box box-info">
+		<div class="box-header with-border">
+			<h3 class="box-title">File Upload</h3>
+
+		</div>
+		<!-- /.box-header -->
+		<!-- form start -->
+		<form class="form-horizontal">
+			<div class="box-body">
+				<div class="form-group">
+
+					<label class="col-sm-2 control-label">Date:</label>
+					<div class="col-sm-10">
+						<input id="dtpFilter" type="text" class="form-control"
+							data-date-format="dd/mm/yyyy"
+							ng-model="fileupload.recordfileDate" required>
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">File Type:</label>
+					<div class="col-sm-10">
+						<select class="form-control" ng-model="fileupload.fileType">
+							<option value="">Select File</option>
+							<option value="mtm">MTM</option>
+							<option value="exposure">Exposure</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-2 control-label">Select File:</label>
+					<div class="col-sm-10">
+						<select class="form-control" ng-model="fileupload.filename">
+							<option value="">Select File</option>
+							<option value="irs">IRS</option>
+							<option value="ccs">CCS</option>
+							<option value="option1">Option 1</option>
+							<option value="option2">Option 2</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="" class="col-sm-2 control-label">Browse:</label>
+					<div class="col-sm-10">
+						<form enctype="multipart/form-data">
+							<input type="file" file-model="myFile" name="file"
+								class="form-control" />
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<!-- /.box-body -->
+			<div class="box-footer">
+
+				<button type="button" class="btn btn-info pull-right"
+					ng-click="uploadFile()">Upload</button>
+			</div>
+			<!-- /.box-footer -->
+		</form>
+	</div>
+</div>
+<div class="col-lg-3 col-xs-6"></div>
+<div class="col-lg-3 col-xs-6"></div>
+<div class="col-lg-3 col-xs-6"></div>
+</div>

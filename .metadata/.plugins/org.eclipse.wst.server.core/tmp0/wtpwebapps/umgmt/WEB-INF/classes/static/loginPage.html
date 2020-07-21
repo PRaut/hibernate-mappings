@@ -1,0 +1,302 @@
+<html>
+
+<head>
+	<title>Login | Axis Bank</title>
+	<meta charset="utf-8" />
+	<script src="user-mgmt/plugins/jQuery/jquery.min.js"></script>
+	<script src="user-mgmt/lib/jquery-val.js"></script>
+	<link rel="stylesheet" href="user-mgmt/bootstrap/css/bootstrap.min.css" />
+	<script src="user-mgmt/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="user-mgmt/components/font-awesome/css/font-awesome.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="user-mgmt/lib/pan.js"></script>
+
+	<style>
+
+		/* @font-face {
+			font-family: "Lato";
+  			src: url("user-mgmt/fonts/lato.regular.ttf");
+		}
+
+		body {
+			font-family: "Lato";
+		} */
+
+		.nq-um-navbar-img-cont {
+			height: 5rem;
+		}
+
+		.nq-um-navbar-extra-cont {
+			display: inline-block;
+			height: 2.8rem;
+			width: 50%;
+			background-color: #97144d;
+			margin-left: -4px;
+			position: absolute;
+		}
+
+		.navbar {
+			border: 0;
+		}
+
+		.panel-heading {
+			text-align: center;
+		}
+
+		.panel-title {
+			color: #a03058;
+			font-size: 12px;
+			letter-spacing: 1.2;
+ 			text-transform: uppercase;
+		}
+
+		.nq-der-form-btn {
+			background-color: #a03058;
+			border-radius: 0;
+			color: #fff;
+			font-size: 12px;
+			font-weight: 600;
+			height: 3.5rem;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			width: 100%;
+		}
+
+		.nq-der-form-btn:hover {
+			color: #fff;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<nav class="navbar">
+			<img class="nq-um-navbar-img-cont" src="user-mgmt/img/axis-bar.png"/>
+			<i class="nq-um-navbar-extra-cont"></i>
+		</nav>
+		<div class="row vertical-offset-100">
+			<div class="col-md-4 col-md-offset-4">
+				<div id="loginMessage"></div>
+				<div class="panel panel-default" id="logDiv">
+					<div class="panel-heading">
+						<label class="panel-title">Deal Consolidation Platform</label>
+					</div>
+					<div class="panel-body">
+						<br />
+						<form id="loginForm">
+							<div class="form-group">
+								<input required class="form-control" id="loginUsername" name="loginUsername" placeholder="Username" type="text" autocomplete="off"/>
+							</div>
+							<div class="form-group">
+								<input required class="form-control" id="loginPassword" name="loginPassword" placeholder="Password" type="password" />
+							</div>
+							<br />
+							<button data-loading-text="<i class='fa fa-spinner fa-spin '></i> Logging in " type="submit"
+							 id="loginButton" class="btn nq-der-form-btn">
+								Login
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="roleSelector" style="visibility: hidden">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<label class="panel-title">Multiple Access Found</label>
+				</div>
+				<div class="panel-body" id="logDiv">
+					<br />
+					<p>Please select portal</p>
+					<form id="portSelect" style="margin-top: 30px">
+						<div id="mod_radio"></div>
+						<button data-loading-text="<i class='fa fa-spinner fa-spin '></i> Logging in " type="submit" style="margin-top: 45px"
+						 id="selectPort" class="btn nq-der-form-btn">
+							Enter
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var formToValidate = $("#loginForm").validate({
+		rules: {
+			loginUsername: {
+				required: true,
+				minlength: 3
+			},
+			loginPassword: {
+				required: true,
+				minlength: 3
+			}
+		},
+		messages: {
+			loginUsername: {
+				required: '<span style="color:red">Please enter your username<span>',
+				minlength:
+					'<span style="color:red">Please enter a valid username<span>'
+			},
+			loginPassword: {
+				required: '<span style="color:red">Please enter your password<span>',
+				minlength:
+					'<span style="color:red">Please enter a valid password<span>'
+			}
+		}
+	});
+
+	function doMag(e) {
+		var t,
+			a = CryptoJS.enc.Utf8.parse("rTg" + e),
+			o = CryptoJS.enc.Utf8.parse(e + "cgf"),
+			n = ((t = $("#loginPassword").val()),
+				CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(t), a, {
+					keySize: 16,
+					iv: o,
+					mode: CryptoJS.mode.CBC,
+					padding: CryptoJS.pad.Pkcs7
+				}));
+		$("#loginPassword").val(n);
+	}
+
+	$("#portSelect").submit(function (event) {
+		event.preventDefault();
+		var selectedPortal = $("#portSelect")
+			.find("input[name=mod_select]:checked")
+			.val();
+		console.log(selectedPortal);
+
+		if (selectedPortal == "umg") {
+			window.location.href = "usermanagement";
+		} else if (selectedPortal == "der") {
+			//window.location.href="../SLRWeb";
+			 window.location.href = "http://localhost:9090/SLRWeb/";
+		} else if (selectedPortal == "ipa") {
+			//window.location.href="../IPA"
+			 window.location.href = "http://localhost:3000";
+		}
+	});
+
+	$("#loginForm").submit(function (event) {
+		$("#loginMessage").html("");
+		if (formToValidate.valid()) {
+			var $this = $("#loginButton");
+			$this.button("loading");
+			console.log("working");
+
+			event.preventDefault();
+			(radio = new Date().getTime()), doMag(radio);
+			var username = $("#loginUsername").val();
+			var password = $("#loginPassword").val();
+
+			var data = {
+				username: username,
+				password: password
+			};
+
+			$.ajax({
+				url: "login",
+				type: "POST",
+				data: JSON.stringify(data),
+				headers: {
+					"content-type": "application/json",
+					radio: radio
+				},
+				success: function (data) {
+					document.cookie =
+						"access-token=" + data.serviceResponse.token + "; Path=/";
+					checkUser();
+					$this.button("reset");
+				},
+				error: function (xhr, error) {
+					$("#loginMessage").html(
+						"<div class='alert alert-danger'>Login failed !</div>"
+					);
+					$this.button("reset");
+				}
+			});
+		}
+	});
+
+	function checkUser() {
+		var cookieData = {};
+		var splittedCookie = document.cookie.split(";", 5);
+		splittedCookie.forEach(function (element) {
+			var splittedElement = element.split("=", 2);
+			cookieData[splittedElement[0].trim()] = splittedElement[1];
+		});
+
+		$.ajax({
+			url: "api/users/getUserDetails",
+			type: "GET",
+			headers: {
+				"content-type": "application/json",
+				Authorization: "Token " + cookieData["access-token"]
+			},
+			success: function (data) {
+				if (data.serviceResponse.roles.length > 1) {
+					var userRoles = data.serviceResponse.roles;
+					var portAccess = [];
+					for (var x = 0; x < userRoles.length; x++) {
+						var occRole = userRoles[x].name.split("_", 2)[0];
+						if (!portAccess.includes(occRole)) {
+							portAccess.push(occRole);
+						}
+					}
+
+					for (var y = 0; y < portAccess.length; y++) {
+						console.log("set kiya " + portAccess[y]);
+						if (portAccess[y] == "umg") {
+							$("#mod_radio").append(
+								"<div class='radio'><label><input type='radio' value='umg' name='mod_select'>User Management</label></div>"
+							);
+						} else if (portAccess[y] == "der") {
+							$("#mod_radio").append(
+								"<div class='radio'><label><input type='radio' value='der' name='mod_select'>Derivatives</label></div>"
+							);
+						} else if (portAccess[y] == "ipa") {
+							$("#mod_radio").append(
+								"<div class='radio'><label><input type='radio' value='ipa' name='mod_select'>IPA</label></div>"
+							);
+						}
+					}
+					$("#logDiv").replaceWith($("#roleSelector"));
+					$("#roleSelector").css("visibility", "visible");
+				} else if (data.serviceResponse.roles.length == 1) {
+					var finPortal = data.serviceResponse.roles[0].name.split("_", 2)[0];
+					if (finPortal == "umg") {
+						window.location.href = "usermanagement";
+					} else if (finPortal == "der") {
+						//window.location.href="/SLRWeb";
+						 window.location.href = "http://localhost:9090/SLRWeb/";
+					} else if (finPortal == "ipa") {
+						//window.location.href="/IPA";
+						 window.location.href = "http://localhost:3000";
+					}
+					/* window.location.href = "usermanagement"; */
+				} else {
+					// perform something else if no matching module found
+				}
+			},
+			error: function (data) {
+				console.log(data);
+			}
+		});
+	}
+	var cookieData = {};
+	var splittedCookie = document.cookie.split(";", 5);
+	splittedCookie.forEach(function (element) {
+		var splittedElement = element.split("=", 2);
+		cookieData[splittedElement[0].trim()] = splittedElement[1];
+	});
+	var accessToken = cookieData["access-token"];
+	if (accessToken != null && accessToken.length) {
+		checkUser();
+		//window.location.href = "usermanagement";
+	}
+</script>
+
+</html>

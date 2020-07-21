@@ -1,0 +1,121 @@
+
+<style>
+.ui-menu .ui-menu-item a {
+	height: 10px;
+	font-size: 20px;
+	style: none;
+	width: 100px;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#clickme {
+	border-radius: 0px;
+	border: 1px solid
+}
+
+#clickme:hover {
+	cursor: pointer;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#input {
+	border-radius: 0px;
+	border: 1px solid;
+	height: 0 0 30px;
+}
+
+#input:hover {
+	
+}
+
+#input:active {
+	box-shadow: 0 0 30px;
+}
+
+#input:focus {
+	box-shadow: 0 0 30px;
+}
+
+.ui-autocomplete {
+	background: #c9d4e5;
+	border-color: gray;
+	border-radius: 2px;
+	list-style: none;
+	width: 108px;
+	overflow-y: auto;
+	max-height: 150px;
+}
+</style>
+<section class="content-header">
+	<h1>New Group Creation</h1>
+	<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-lg-12 col-xs-20">
+			<!-- small box -->
+			<div class="col-md-6">
+				<div class="box box-primary" id="boxx">
+					<form role="form" name="groupCreation"  ng-init="loadCheckers()">
+						<div class="box-body">
+							<div ng-app='MyModule'>
+								<div class="form-group">
+									<label for="name">Group Name:</label> <input type="text"
+										class="form-control" id="gName" placeholder="Enter Group Name"
+										ng-model="groupData.name" required>
+								</div>
+
+								<div class="form-group">
+									<label for="name">Email:</label> <input type="email"
+										class="form-control" id="gEmail"
+										placeholder="Enter Group Email" ng-model="groupData.email"
+										ng-pattern="/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/"
+										required>
+								</div>
+								<div class="form-group">
+									<label for="name">Group Description:</label> <input type="text"
+										class="form-control" id="gDesc"
+										placeholder="Enter Group Description"
+										ng-model="groupData.description" required>
+								</div>
+
+								<div class="form-group">
+									<label for="checker">Checker:</label> 
+									<select
+										class="form-control" id="check"
+										ng-model="user.checker" required>
+										<option ng-repeat="checker in checkers" ng-value="checker.id">{{checker.name}}</option>
+									</select>
+								</div>
+								<!--<div class="form-group">
+											<label for="name">Group Checker:</label>
+											<input type="text" class="form-control" id="gChecker" placeholder="Enter Group Checker" ng-model="groupData.checker">
+												</div>-->
+								<button type="submit" class="btn btn-primary"
+									ng-click="createGroup()" ng-disabled="groupCreation.$invalid">Submit</button>
+							</div>
+					</form>
+					<br> <br>
+					<div class="alert alert-success"
+						ng-show="groupAddResponse == 'success'">
+						Group successfully added, click here to &nbsp;&nbsp;<a
+							ui-sref="groupmanagement">View Groups</a>
+					</div>
+					<div class="alert alert-danger"
+						ng-show="groupAddResponse == 'fail'">Operation failed ::
+						{{error}}</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-xs-6"></div>
+		<div class="col-lg-3 col-xs-6"></div>
+		<div class="col-lg-3 col-xs-6"></div>
+	</div>
+
+</section>

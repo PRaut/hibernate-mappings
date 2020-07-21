@@ -1,0 +1,25 @@
+spring.datasource.url=jdbc:sqlserver://192.168.1.245;databaseName=directdealing
+spring.datasource.username=NQ_JAVA
+spring.datasource.password=Java@2018
+spring.jpa.properties.hibernate.default_schema=ddp
+
+spring.servlet.multipart.max-request-size=50MB
+spring.servlet.multipart.max-file-size=50MB
+
+logging.level.com.dev.neo=DEBUG
+logging.path=D:/logs
+logging.file=${logging.path}/${spring.application.name}.log
+
+# Will run daily at 8:00 AM
+daily.scheduler.cron.exp=0 0 8 * * ?
+enable.scheduler = true
+
+spring.jackson.time-zone=Asia/Calcutta
+
+spring.jpa.show-sql=true
+
+server.port=8081
+
+usermanagement.url=http://localhost:8180/usermanagement/
+
+excelfile.download.path=D://dolton//work//axis//directdealing//dwreport

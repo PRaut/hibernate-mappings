@@ -1,0 +1,204 @@
+
+<style>
+.ui-menu .ui-menu-item a {
+	height: 10px;
+	font-size: 20px;
+	style: none;
+	width: 100px;
+}
+</style>
+<section class="content-header">
+	<h1>Counter Party Master</h1>
+	<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-lg-12 col-xs-20">
+			<!-- small box -->
+
+			<div class="box box-primary" id="boxx">
+				<h3 class="box-title">&nbsp;&nbsp;&nbsp;Counter Party Master</h3>
+				<form role="form" name="counterPartyForm">
+					<div class="box-body">
+						<div ng-app='MyModule'>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Counter Party Parent Id:</label> <input type="text"
+										class="form-control" data-ng-model="counterParty.parentId"
+										required>
+								</div>
+								<div class="form-group">
+									<label for="name">Address 1:</label> <input type="text"
+										class="form-control" data-ng-model="counterParty.address1">
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Counter Party Name:</label> <input type="text"
+										class="form-control" data-ng-model="counterParty.counterParty"
+										required>
+								</div>
+								<div class="form-group">
+									<label for="name">Address 2:</label> <input type="text"
+										class="form-control" data-ng-model="counterParty.address2">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Email:</label> <input type="email"
+										class="form-control" id="email"
+										data-ng-model="counterParty.email">
+								</div>
+								<div class="form-group">
+									<label for="name">Capture Name:</label> <input type="text"
+										class="form-control" id="captureName"
+										data-ng-model="counterParty.captureName">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Markup Rate:</label> <input type="text"
+										class="form-control" id="markupRate"
+										data-ng-model="counterParty.markupRate">
+								</div>
+								<div class="form-group">
+									<label for="name">Standard Asset Provision:</label> <input
+										type="text" class="form-control" id="stdAssestProvision"
+										data-ng-model="counterParty.stdAssestProvision">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">RBI MTM Return:</label> <input type="text"
+										class="form-control" id="rbiMtmReturn"
+										data-ng-model="counterParty.rbiMtmReturn">
+								</div>
+								<div class="form-group">
+									<label>FSI</label> <select ng-model="counterParty.fsi"
+										class="form-control select2" style="width: 100%;">
+										<option selected="BANK">BANK</option>
+										<option>PD</option>
+										<option>Others</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Residence Country Code:</label> <select
+										ng-model="counterParty.residenceCountryCode"
+										class="form-control select2" style="width: 100%;">
+										<option selected="002">002</option>
+										<option>003</option>
+										<option>004</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="name">Country of Ultimate Risk:</label> <select
+										ng-model="counterParty.countryOfRisk"
+										class="form-control select2" style="width: 100%;">
+										<option selected="002">002</option>
+										<option>003</option>
+										<option>004</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Sector of Ultimate Risk:</label> <select
+										ng-model="counterParty.sectorOfRisk"
+										class="form-control select2" style="width: 100%;">
+										<option selected="Corporate">Corporate</option>
+										<option>Bank</option>
+										<option>Government</option>
+										<option>Monetary Authority</option>
+										<option>Non-Bank Private Sector</option>
+										<option>Non-Bank Public Sector</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="name">NPA:</label> <input type="text" id="npa"
+										class="form-control" required data-ng-model="counterParty.npa">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Type</label> <select ng-model="counterParty.type"
+										class="form-control select2">
+										<option selected="BANK">CRE</option>
+										<option>NHB</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary"
+							ng-click="addCounterParty()"
+							ng-disabled="counterPartyForm.$invalid">Submit</button>
+					</div>
+
+
+
+				</form>
+
+			</div>
+
+
+			<div class="box box-primary" id="boxx">
+				<h3 class="box-title">&nbsp;&nbsp;&nbsp;E-mail Id Master</h3>
+				<form role="form" name="EmailMasterForm">
+					<div class="box-body" ng-init="getEmailData()">
+						<div ng-app='MyModule'>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Parent Id:</label> <input type="parentId"
+										id="parentId" class="form-control"
+										ng-model="emailMaster.parentId" required
+										ng-change="findEmails()">
+								</div>
+								<div class="form-group">
+									<label for="name">E-mail Id:</label> <input type="email"
+										id="email" class="form-control" ng-model="emailMaster.email"
+										required>
+								</div>
+								<div class="form-group">
+									<label for="name">Escalation level:</label> <select
+										class="form-control" ng-model="emailMaster.escalation"
+										required>
+										<option selected="Level-1">Level-1</option>
+										<option>Level-2</option>
+									</select>
+								</div>
+								<div>
+									<input type="button" value="Save" ng-click="saveRecord()"
+										ng-disabled="EmailMasterForm.$invalid" class="btn btn-primary" />
+								</div>
+							</div>
+				</form>
+			</div>
+		</div>
+		<div class="box-body">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Parent Id</th>
+						<th>email</th>
+						<th>escalation level</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tr ng-repeat="email in emails">
+					<td>{{ email.id }}</td>
+					<td>{{ email.email }}</td>
+					<td>{{ email.escalation }}</td>
+					<td><a href="#/counterPartyMaster" ng-click="deletes(email)"><button
+								class="btn btn-primary">Delete</button></a>&nbsp; <a
+						href="#/counterPartyMaster" ng-click="edit(email.id)"><button
+								class="btn btn-primary">Edit</button></a></td>
+
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</section>

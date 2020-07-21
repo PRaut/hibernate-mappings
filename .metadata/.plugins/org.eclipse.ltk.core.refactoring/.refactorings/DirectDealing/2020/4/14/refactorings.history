@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.dev.neo.util.Common&apos; to &apos;CommonUtils&apos;&#x0D;&#x0A;- Original project: &apos;DirectDealing&apos;&#x0D;&#x0A;- Original element: &apos;com.dev.neo.util.Common&apos;&#x0D;&#x0A;- Renamed element: &apos;com.dev.neo.util.CommonUtils&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Common&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.dev.neo.util{Common.java[Common" matchStrategy="1" name="CommonUtils" qualified="false" references="true" similarDeclarations="false" stamp="1585743651809" textual="false" version="1.0"/>
+</session>

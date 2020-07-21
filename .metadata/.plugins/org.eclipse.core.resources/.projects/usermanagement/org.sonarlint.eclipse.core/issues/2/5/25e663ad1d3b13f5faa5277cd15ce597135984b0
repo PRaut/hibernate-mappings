@@ -1,0 +1,14 @@
+
+Zjavascript:S878*"!Unexpected use of comma operator.(Óì€˜8Ğ¿ÑÕ£.HªÿRMAJORZ
+CODE_SMELL
+…javascript:S3699“"LRemove this use of the output from "doMag"; "doMag" doesn't return anything.(â§şöüÿÿÿÿ8Ğ¿ÑÕ£.H«ÿRMAJORZBUG
+ujavascript:S14816";Remove the declaration of the unused 'portAccess' variable.(’Â±ó8Ğ¿ÑÕ£.H¬ÿRMINORZ
+CODE_SMELL
+}javascript:S905'"FExpected an assignment or function call and instead saw an expression.(–­â¬øÿÿÿÿ8Ğ¿ÑÕ£.H­ÿRMAJORZBUG
+ijavascript:S1117¤".'data' is already declared in the upper scope.(ı ô 8Ğ¿ÑÕ£.H®ÿRMAJORZ
+CODE_SMELL
+javascript:S2703“"[Add the "let", "const" or "var" keyword to this declaration of "radio" to make it explicit.(â§şöüÿÿÿÿ8Ğ¿ÑÕ£.H¯ÿRBLOCKERZ
+CODE_SMELL
+`javascript:S878“"!Unexpected use of comma operator.(â§şöüÿÿÿÿ8Ğ¿ÑÕ£.H°ÿRMAJORZ
+CODE_SMELL
+~javascript:S905“"FExpected an assignment or function call and instead saw an expression.(â§şöüÿÿÿÿ8Ğ¿ÑÕ£.H±ÿRMAJORZBUG

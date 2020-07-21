@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: DirectDealing
+Implementation-Version: 1.0.0
+Built-By: NQE00205
+Implementation-Vendor-Id: com.dev.neo
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/DirectDealing
+Created-By: Maven Integration for Eclipse
+Main-Class: com.dev.neo.DirectDealingPortalApplication
+

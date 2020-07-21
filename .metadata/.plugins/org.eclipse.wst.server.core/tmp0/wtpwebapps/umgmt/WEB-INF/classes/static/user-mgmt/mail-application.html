@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DerivativeApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Derivatives | NQ</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="/plugins/select2/select2.min.css">
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+
+
+
+
+<!--<base href="/"> -->
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<a href="index.html" class="logo" style="background-color: #f2f2f2;">
+				<!-- mini logo for sidebar mini 50x50 pixels --> <span
+				class="logo-mini"><b>axis</b></span> <!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b><img
+						src="dist/img/axis-bank-logo.png"></b></span>
+			</a>
+			<nav class="navbar navbar-static-top">
+				<!-- Sidebar toggle button-->
+				<span
+					style="color: white; font-size: 30px; padding-left: 10px; align: center;">
+					Derivatives Portal </span>
+				<div class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+				</div>
+
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<li class="dropdown user user-menu"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"> <img
+								src="dist/img/user2-160x160.jpg" class="user-image"
+								alt="User Image"> <span class="hidden-xs">Alexander
+									Pierce</span>
+						</a>
+							<ul class="dropdown-menu">
+								<!-- User image -->
+								<li class="user-header"><img
+									src="dist/img/user2-160x160.jpg" class="img-circle"
+									alt="User Image">
+
+									<p>Alexander Pierce - IT Manager</p></li>
+								<!-- Menu Body -->
+								<li class="user-body">
+									<!-- /.row -->
+								</li>
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div class="pull-left">
+										<a href="#" class="btn btn-default btn-flat">Profile</a>
+									</div>
+									<div class="pull-right">
+										<a href="#" class="btn btn-default btn-flat">Sign out</a>
+									</div>
+								</li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Sidebar -->
+		<aside class="main-sidebar">
+
+			<section class="sidebar">
+
+				<ul class="sidebar-menu">
+					<li class="">&nbsp;</li>
+
+
+
+
+					<li class="treeview"><a href="#"> <i class="fa fa-home"></i>
+							<span>Dashboard</span> <span class="pull-right-container"">
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li class="active"><a id="srLink" href="#/summaryReports"><i
+									class="fa fa-bar-chart"></i> Summary Report</a></li>
+							<li class="treeview"><a href="#/reports"><i
+									class="fa fa-circle-o"></i> Report</a> <!--		<ul class="treeview-menu">
+			<li class="active"><a href="/#/leaddash"><i class="fa fa-circle-o"></i>CP VAL</a></li>
+            <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> CP VAT to DMD</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> Post Deal Documentation</a></li>
+              <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> Trade Day MTM exceeding LIMIT as per Derivative Policy</a></li>
+			 <li class="active"><a href="/#/leaddash"><i class="fa fa-circle-o"></i>MTM Auto mailer</a></li>
+            <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> NPI data</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> Recovery Report</a></li>
+			
+			<li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> Contingent Liability</a></li>
+			 <li class="active"><a href="/#/leaddash"><i class="fa fa-circle-o"></i>Contract Derivatives Benchmark</a></li>
+            <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> DSB Real Estate Corporate</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> DSB XI</a></li>
+			
+			<li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> Overdue Report</a></li>
+              <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> Standard Asset Provisioning</a></li>
+			 <li class="active"><a href="/#/leaddash"><i class="fa fa-circle-o"></i>Banking Group Return</a></li>
+            <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> FSI</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> IBS</a></li>
+			 <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> ICDS</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> RBI MTM Product wise Details</a></li>
+			 <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> RBI FSU Network Analysis</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> RBS(Tranche i & IA)</a></li>
+			 <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> Sharing of Information</a></li>
+            <li class="active"><a href="/#/needAnalysis"><i class="fa fa-circle-o"></i> Note to Account</a></li>
+			 <li class="active"><a href="/#/leadRecord"><i class="fa fa-circle-o"></i> Annual Certificate</a></li>
+           
+			 </ul> --></li>
+
+
+							<li class="active"><a href="#/fileupload"><i
+									class="fa fa-upload"></i> File upload</a></li>
+						</ul></li>
+
+
+
+					<li class="treeview"><a> <i class="fa fa-dashboard"></i>
+							<span>Admin</span> <span class="pull-right-container"> </span>
+					</a>
+
+						<ul class="treeview-menu">
+							<li class="active"><a> <i class="fa fa-user"></i> <span>User</span>
+									<span class="pull-right-container"> </span>
+							</a>
+								<ul class="treeview-menu">
+									<li class="active"><a href="#/usercreation"><i
+											class="fa fa-user-plus" aria-hidden="true"></i>New User
+											Creation</a></li>
+									<li class="active"><a href="#/usermanagement"><i
+											class="fa fa-circle-o"></i>User Management</a></li>
+								</ul></li>
+
+							<li class="active"><a> <i class="fa fa-users"></i> <span>Group</span>
+									<span class="pull-right-container"> </span>
+							</a>
+								<ul class="treeview-menu">
+									<li class="active"><a href="#/groupcreations"><i
+											class="fa fa-users"></i>New Group Creation</a></li>
+									<li class="active"><a href="#/groupmanagement"><i
+											class="fa fa-circle-o"></i>Group Management</a></li>
+								</ul></li>
+
+							<li class="active"><a> <i class="fa fa-users"></i> <span>Reports</span>
+									<span class="pull-right-container"> </span>
+							</a>
+								<ul class="treeview-menu">
+									<li class="active"><a href="#/reportCreation"><i
+											class="fa fa-users"></i>New Report Creation</a></li>
+									<li class="active"><a href="#/reportmanagement"><i
+											class="fa fa-circle-o"></i>Reports Management</a></li>
+								</ul></li>
+
+							<!-- Comment till end of list
+      <li class="active"><a href="#">
+            <i class="fa fa-circle-o"></i>
+            <span>Group Assignment</span>
+            <span class="pull-right-container">            
+            </span>
+          </a>
+		  <ul class="treeview-menu">
+			<li class="active"><a href="#/groupUserAssignment"><i class="fa fa-bars"></i>New User Assignment</a></li>
+			<li class="active"><a href="#/editAssoc"><i class="fa fa-circle-o"></i>Menu Assignment</a></li>
+			<li class="active"><a href="#/"><i class="fa fa-list"></i>Report Assignment</a></li>
+			</ul>
+			</li>-->
+
+
+							<li class="active"><a href="#"> <i
+									class="fa fa-circle-o"></i> <span>Master Management</span> <span
+									class="pull-right-container""> </span>
+							</a>
+								<ul class="treeview-menu">
+									<li class="active"><a href="#/counterPartyMaster"><i
+											class="fa fa-building"></i>Counter Party Master</a></li>
+									<li class="active"><a href="#/holidayMaster"><i
+											class="fa fa-calendar-check-o"></i>Holiday Master</a></li>
+									<li class="active"><a href="#/reportMaster"><i
+											class="fa fa-list"></i>Report Master</a></li>
+								</ul></li>
+							<li class="active"><a href="#/trackEmail"><i
+									class="fa fa-envelope"></i>Track Email/Sms Alert</a></li>
+							<li class="active"><a href="#/leaddash"><i
+									class="fa fa-check-square-o"></i>Right Management</a></li>
+						</ul></li>
+
+				</ul>
+			</section>
+
+		</aside>
+		<!-- End Sidebar -->
+
+		<div class="content-wrapper">
+			<section class="content-header"></section>
+			<section class="content">
+
+				<div ui-view></div>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Version</b> 0.0.1
+			</div>
+			<strong>Copyright &copy; 2016-2017 <a
+				href="http://neoquant.com">NeoQuant Solutions Pvt. Ltd</a>.
+			</strong> All rights reserved.
+		</footer>
+		<div class="control-sidebar-bg"></div>
+	</div>
+	</div>
+
+	<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript"
+		src="components/jquery/dist/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="components/sparklines/sparkline.min.js"></script>
+	<script type="text/javascript" src="components/angular/angular.min.js"></script>
+	<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+	<!-- Bootstrap 3.3.6 -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="plugins/fastclick/fastclick.js"></script>
+	<script src="dist/js/app.min.js"></script>
+	<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+	<script src="plugins/flot/jquery.flot.min.js"></script>
+	<script src="plugins/flot/jquery.flot.resize.min.js"></script>
+	<script src="plugins/flot/jquery.flot.pie.min.js"></script>
+	<script src="plugins/flot/jquery.flot.categories.min.js"></script>
+	<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+
+
+	<script src="dist/js/app.min.js"></script>
+	<script type="text/javascript"
+		src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/services/userService.js"></script>
+	<script type="text/javascript" src="js/controller/userController.js"></script>
+	<script type="text/javascript"
+		src="js/controller/fileUploadController.js"></script>
+	<script type="text/javascript" src="js/controller/reportsController.js"></script>
+	<script type="text/javascript" src="js/controller/groupController.js"></script>
+	<script type="text/javascript" src="js/services/groupService.js"></script>
+	<script type="text/javascript"
+		src="js/services/groupAssignmentService.js"></script>
+	<script type="text/javascript"
+		src="js/controller/groupAssignmentController.js"></script>
+	<script type="text/javascript"
+		src="js/controller/counterPartyController.js"></script>
+	<script type="text/javascript" src="js/services/counterPartyService.js"></script>
+	<script type="text/javascript" src="js/services/reportService.js"></script>
+	<script type="text/javascript" src="js/services/fileUploadService.js"></script>
+	<script type="text/javascript" src="js/services/roleService.js"></script>
+
+	<script type="text/javascript" src="/lib/multi-select.js"></script>
+
+
+	<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+{PlotPie();PlotBar();}
+	$('#srLink').click(function(){
+{PlotPie();	PlotBar();	}
+	});
+	
+	
+	
+});
+
+function PlotPie(){
+setTimeout(function(){
+		 var donutData = [
+		  {label: "DE", data: 20, color: "blue"},
+		  {label: "HU", data: 40, color: "red"},
+		  {label: "PL", data: 20, color: "green"},
+		    {label: "SE", data: 20, color: "orange"}
+		];
+		$.plot("#donut-chart", donutData, {
+		  series: {
+			pie: {
+			  show: true,
+			  radius: 1,
+			  innerRadius: 0.5,
+			  label: {
+				show: true,
+				radius: 2 / 3,
+				formatter: labelFormatter,
+				threshold: 0.1
+			  }
+			}
+		  },
+		  legend: {
+			show: false
+		  }
+		});
+		 },50);
+}
+
+function PlotBar(){
+setTimeout(function(){
+
+    var bar_data = {
+      data: [["Wholesale", 10], ["Energy", 8], ["Gas", 4], ["Oil", 13], ["Petrol", 17], ["Diesel", 9]],
+      color: "green"
+    };
+    $.plot("#bar-chart", [bar_data], {
+      grid: {
+        borderWidth: 1,
+        borderColor: "#f3f3f3",
+        tickColor: "red"
+      },
+      series: {
+        bars: {
+          show: true,
+          barWidth: 0.5,
+          align: "center",
+		   color: "orange"
+        }
+      },
+      xaxis: {
+        mode: "categories",
+        tickLength: 0
+      }
+    });
+		 },50);
+}
+
+function labelFormatter(label, series) {
+    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+        + label
+        + "<br>"
+        + Math.round(series.percent) + "%</div>";
+  }
+
+</script>
+
+	<!--Place in proper css **IMPORTANT** -->
+	<style>
+.pointLink {
+	cursor: pointer;
+}
+
+.pointLink:hover {
+	transition: all .4s ease-in-out;
+	transform: scale(1.5);;
+}
+
+.ui-menu .ui-menu-item a {
+	height: 10px;
+	font-size: 20px;
+	style: none;
+	width: 100px;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#clickme {
+	border-radius: 0px;
+	border: 1px solid
+}
+
+#clickme:hover {
+	cursor: pointer;
+}
+
+#clickme:active {
+	box-shadow: 0 0 30px
+}
+
+#input {
+	border-radius: 0px;
+	border: 1px solid;
+	height: 0 0 30px;
+}
+
+#input:hover {
+	
+}
+
+#input:active {
+	box-shadow: 0 0 30px;
+}
+
+#input:focus {
+	box-shadow: 0 0 30px;
+}
+
+.ui-autocomplete {
+	background: #f6f6f6;
+	border-color: gray;
+	border-radius: 2px;
+	list-style: none;
+	width: 108px;
+	overflow-y: auto;
+	max-height: 150px;
+	color: black;
+}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<section class="content-header" ng-init="getAllUsers()">
+	<style>
+</style>
+
+	<h1></h1>
+
+	<div class="box">
+		<div class="box-header">
+			<button class="btn btn-primary" ui-sref="groupmanagement">
+				<i class="fa fa-arrow-circle-o-left" aria-hidden="true"> Back </i>
+			</button>
+			<br>
+			<br>
+			<h3 class="box-title">{{inGroupName}}</h3>
+			&nbsp;&nbsp; <br>
+			<br>
+			<div class="row">
+				<div class="col-sm-5" style="padding-right: 4px">
+					<input style="width: 100%" auto-complete ui-items="names"
+						ng-model="groupToUser.user" class="form-control"
+						placeholder="Enter Employee Id" id="clickme"
+						ng-change="search(selected)">
+				</div>
+				<div class="col-sm-2" style="padding: 0px">
+					<button ng-click="addUserToGroup(groupToUser.user)"
+						class="btn btn-primary">Add User</button>
+				</div>
+			</div>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body" ng-init="initInGroupData()">
+			<table id="example1" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Sr.No.</th>
+						<!--<th>Employee Id</th>-->
+						<th>Name</th>
+						<th>Email</th>
+						<th>Remove User</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="t in userDataInGroup">
+						<td>{{$index + 1}}</td>
+						<!--<td>{{t.id}}</td>-->
+						<td>{{t.username}}</td>
+						<td>{{t.email}}</td>
+						<td class="text-center"><i id="uig_{{t.id}}"
+							ng-click="removeUserFromGroup(t.id)"
+							class="fa fa-chain-broken pointLink" aria-hidden="true"></i></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</section>

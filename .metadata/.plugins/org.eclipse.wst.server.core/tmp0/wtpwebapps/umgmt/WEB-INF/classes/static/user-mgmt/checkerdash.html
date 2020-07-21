@@ -1,0 +1,175 @@
+<style>
+
+.modal-header{
+	background-color:#A03058;
+	color: white
+}
+</style>
+
+<section class="content-header" ng-init="loadCheckerDash()">
+	<h1></h1>
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">Maker Dashboard</h3>
+			&nbsp;&nbsp;
+		</div>
+		<div class="box-body" ng-init="getReportList(false)">
+			<table id="example1" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Sr.No.</th>
+						<th>Request Id</th>
+						<th>Created On</th>
+						<th>Action On</th>
+						<th>Purpose</th>
+						<th>Checker</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="request in checkRequests">
+						<td>{{$index + 1}}</td>
+						<td>{{request.requestId}}</td>
+						<td>{{request.createdOn}}</td>
+						<td>{{request.actionDate}}</td>
+						<td>{{request.purpose}}</td>
+                        <td>{{request.checker}}</td>
+                        <td>
+                            <!-- <span ng-if="request.status == -2">Update Pending</span> -->
+                            <span ng-if="request.status == 0">Approved</span>
+                            <span ng-if="request.status == -1">Pending</span>
+                            <span ng-if="request.status == 1">Rejected</span>
+                            <!-- <span ng-if="request.status == 2">Update Rejected</span> -->
+                        </td>
+						<td>
+
+                            <td>
+                                <!--<span style="color: red; width: 20%">{{request.cerror}}</span>
+                                -->
+                                <span ng-if="!request.cerror">
+                                  <span ng-if="request.status == -1">
+                                        <button ng-disabled="request.rejecting || request.accepting"  href="#" data-toggle="modal" 
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#commentModal" class="btn btn-success" ng-click="actRequest(request, 'A')" title="approve">
+                                          <!--<i ng-if="!request.accepting" class="fa fa-check " aria-hidden="true"></i>
+                                          <i ng-if="request.accepting"  class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>-->
+                                          <i  class="fa fa-check " aria-hidden="true"></i>
+                                        </button>
+          
+                                        <button ng-disabled="request.rejecting || request.accepting" href="#" data-toggle="modal"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#commentModal" class="btn btn-danger" ng-click="actRequest(request, 'R')" title="reject">
+                                            <i ng-if="!request.rejecting" class="fa fa-times" aria-hidden="true"></i>
+                                            <i ng-if="request.rejecting" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+                                        </button>
+                                  </span>
+              
+                                  <button ng-disabled="request.rejecting || request.accepting"  class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal" ng-click="preview(request)" title="preview">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                  </button>
+          
+                                </span>
+                              
+                            </td>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</section>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          <h4 class="modal-title">
+              <div class="row"> 
+                <div class="col-sm-8">
+                        <strong>
+                                {{request.requestId}} ( {{request.purpose}} )
+                        </strong>
+                </div>
+                <div class="col-sm-4">
+                        {{request.createdOn}}
+                </div>
+              </div>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="payload in request.payload" >
+                <tr  ng-repeat="(key, value) in payload">
+                  <td >{{key}}</td>
+                  <td>{{value}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div id="commentModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button"  ng-disabled="acting" class="close" ng-click="dismissChk()" data-dismiss="modal">&times;</button>
+              
+              <h4 class="modal-title">
+                  <div class="row"> 
+                    <div class="col-sm-8">
+                            
+                            <strong>
+                                    Confirm {{ (actype =='A')?"Approval: ":(actype =='R')?"Rejection: ":"" }} {{act.requestId}} ( {{act.purpose}} )
+                            </strong>
+                    </div>
+                    <div class="col-sm-4">
+                            {{act.createdOn}}
+                    </div>
+                  </div>
+              </h4>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <textarea ng-model="actcomment" class="form-control" rows="5" id="comment"></textarea>
+                          </div>
+            </div>
+            <div class="modal-footer">
+              <span>{{chk.msg}}</span>
+              <button type="button" ng-disabled="acting" ng-if="actype == 'A' && chk.status == false" ng-click="accept(act)" class="btn btn-primary" >
+                     <span ng-if="!acting">Approve</span><span ng-if="acting">Approving... </span> 
+                     <i ng-if="acting"  class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></button>
+
+              <button type="button" ng-disabled="acting"  ng-if="actype == 'R' && chk.status ==false"  ng-click="reject(act)" class="btn btn-danger" >
+                     Reject<span ng-if="acting">{{"ing... "}}</span> <i ng-if="acting"  class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i></button>
+
+
+              <button type="button" ng-disabled="acting" class="btn btn-default" data-dismiss="modal" ng-click="dismissChk()">Close</button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    
+    
+    

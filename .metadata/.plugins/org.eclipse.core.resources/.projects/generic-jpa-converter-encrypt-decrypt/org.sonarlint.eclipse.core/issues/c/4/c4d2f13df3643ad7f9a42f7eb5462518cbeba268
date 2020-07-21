@@ -1,0 +1,20 @@
+
+d	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(Ò˙ù∫HèaRMAJORZBUG
+Z	Web:S1827"/Remove this deprecated "cellpadding" attribute.(ﬂ∂ç∏HíaRMAJORZ
+CODE_SMELL
+Ç Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(“á¶£˝ˇˇˇˇ8◊∑≤‡ë.H™aRMAJORZBUG
+v Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(ﬂœ‡…HîaRMAJORZBUG
+v Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(Ñ√ºÓHïaRMAJORZBUG
+WWeb:TableWithoutCaptionCheck%" Add a description to this table.(ÕäÕçHóaRMINORZBUG
+v Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(≤Ê≠ﬁHñaRMAJORZBUG
+T	Web:S18273")Remove this deprecated "align" attribute.(ùŸ≤¶HõaRMAJORZ
+CODE_SMELL
+Z	Web:S1827"/Remove this deprecated "cellspacing" attribute.(ﬂ∂ç∏HìaRMAJORZ
+CODE_SMELL
+ü	Web:S5148"oAdd rel="noopener noreferrer" to this link to prevent the original page from being modified by the opened link.(÷ÅâÁHêaRBLOCKERZVULNERABILITY
+I	Web:S5256%"%Add "<th>" headers to this "<table>".(ÕäÕçHòaRMAJORZBUG
+Z	Web:S1827%"/Remove this deprecated "cellspacing" attribute.(ÕäÕçHôaRMAJORZ
+CODE_SMELL
+WWeb:TableWithoutCaptionCheck" Add a description to this table.(ﬂ∂ç∏HëaRMINORZBUG
+Z	Web:S1827%"/Remove this deprecated "cellpadding" attribute.(ÕäÕçHöaRMAJORZ
+CODE_SMELL

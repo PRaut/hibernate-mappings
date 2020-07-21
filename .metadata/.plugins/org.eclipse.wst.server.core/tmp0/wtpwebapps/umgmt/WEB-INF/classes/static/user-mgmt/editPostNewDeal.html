@@ -1,0 +1,283 @@
+
+<script>
+  
+  $( document ).ready(function() {
+       $('.datepicker').datepicker({
+    autoclose: true
+});
+    });
+  
+
+function datepick(){
+$('.datepicker1').datepicker({
+    autoclose: true,
+	format: 'yyyy-mm-dd'
+});
+}
+  </script>
+<style>
+#example1 tr>th {
+	white-space: nowrap;
+	color: #fff !important;
+	background: #337ab7 !important;
+}
+
+#example1 tr>td {
+	border: 1px solid #333;
+}
+</style>
+<section class="content-header" ng-init="editgetdataPostNewDeal()">
+	<div class="box">
+		<div class="box-header">
+			<h4 class="box-title">Report Name: {{filename}}</h4>
+
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body table-responsive" style="overflow: hidden;">
+			<!--<div class="row">
+		
+			<div class="col-sm-2">			
+            <input  id="dtpFilter" type="text" type="text" ng-model="dtpSearch" class="form-control datepicker" data-date-format="dd/mm/yyyy" />
+	
+			</div>
+			<div class=""><button type="button" ng-disabled="disable" class="btn btn-primary"  ng-click="viewReport()" style="height: 31px;"><i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+			</div>
+			
+			  </div> -->
+
+			<div class="row">
+				<div class="col-sm-3">
+					<span style="color: red"><h4></h4></span>
+				</div>
+			</div>
+			<hr />
+			<div class="row" style="max-height: 400px; overflow: scroll;">
+
+
+				<div class="col-lg-12">
+					<table id="example1"
+						class="table table-bordered table-striped table-hover"
+						height="100">
+
+
+						<thead>
+
+							<tr>
+								<th>Sr No.</th>
+								<th>Deal No.</th>
+								<th>Counter Party</th>
+								<th>Deal Date</th>
+								<th>Maturity Date</th>
+								<th>Currency</th>
+								<th>Notional Principal</th>
+								<th>Termsheet</th>
+								<th>Receive Date</th>
+								<th>Aging</th>
+								<th>Freetext</th>
+								<th>Back-office Deal Confirmation</th>
+								<th>Receive Date</th>
+								<th>Aging</th>
+								<th>Freetext</th>
+								<th>Underlying Declaration</th>
+								<th>Receive Date</th>
+								<th>Aging</th>
+								<th>Freetext</th>
+								<th>Underlying Document</th>
+								<th>Receive Date</th>
+								<th>Aging</th>
+								<th>Freetext</th>
+								<th>Structure Type</th>
+								<th>Underlying Reference</th>
+								<th>Nature of Underlying</th>
+								<th>Report Date</th>
+							</tr>
+						</thead>
+						<tbody style="height: 400px">
+							<!--  <tr ng-if="isLoading">
+                        	<td colspan="10" align="center">
+                        		<div class="overlay"><i class="fa fa-refresh fa-spin"></i></div>
+                        	</td>	
+                        </tr>-->
+							<tr>
+								<td>{{$index + 1}}</td>
+
+								<td>{{postnewdealdata.deal_NO}}</td>
+								<td>{{postnewdealdata.counter_PARTY}}</td>
+								<td>{{postnewdealdata.deal_DATE}}</td>
+								<td>{{postnewdealdata.maturity_DATE}}</td>
+								<td>{{postnewdealdata.currency}}</td>
+								<td>{{postnewdealdata.notional_PRINCIPAL}}</td>
+								<td><select style="width: 100%;"
+									ng-model="postnewdealdata.termsheet">
+										<option value="">select</option>
+										<option value="Received"
+											ng-selected="{{'Received' === postnewdealdata.termsheet}}">Received</option>
+										<option value="Not Received"
+											ng-selected="{{'Not Received' === postnewdealdata.termsheet}}">Not
+											Received</option>
+										<option value="Discrepancy"
+											ng-selected="{{'Discrepancy' === postnewdealdata.termsheet}}">Discrepancy</option>
+										<option value="Scan Copy Received"
+											ng-selected="{{'Scan Copy Received' === postnewdealdata.termsheet}}">Scan
+											Copy Received</option>
+
+								</select></td>
+
+								<td><input type="text" class="form-control datepicker1"
+									onmouseover="datepick()"
+									ng-model="postnewdealdata.term_SHEET_RECEIVE_DATE"
+									ng-change="dateDiff(postnewdealdata)" /></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.termsheet_AGING"></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.termsheet_FREE_TEXT" /></td>
+								<td><select style="width: 100%;"
+									ng-model="postnewdealdata.back_OFFICE_DEAL_CONFIRMATION">
+										<option value="">select</option>
+										<option value="Received"
+											ng-selected="{{'Received' === postnewdealdata.back_OFFICE_DEAL_CONFIRMATION}}">Received</option>
+										<option value="Not Received"
+											ng-selected="{{'Not Received' === postnewdealdata.back_OFFICE_DEAL_CONFIRMATION}}">Not
+											Received</option>
+										<option value="Discrepancy"
+											ng-selected="{{'Discrepancy' === postnewdealdata.back_OFFICE_DEAL_CONFIRMATION}}">Discrepancy</option>
+										<option value="Scan Copy Received"
+											ng-selected="{{'Scan Copy Received' === postnewdealdata.back_OFFICE_DEAL_CONFIRMATION}}">Scan
+											Copy Received</option>
+
+								</select></td>
+								<td><input type="text" class="form-control datepicker1"
+									onmouseover="datepick()"
+									ng-model="postnewdealdata.back_OFFICE_RECEIVE_DATE"
+									ng-change="dateDiff(postnewdealdata)" /></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.back_OFFICE_AGING" /></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.back_OFFICE_FREE_TEXT" /></td>
+
+
+								<td><select style="width: 100%;"
+									ng-model="postnewdealdata.underlying_DECLARATION">
+										<option value="">select</option>
+										<option value="Received"
+											ng-selected="{{'Received' === postnewdealdata.underlying_DECLARATION}}">Received</option>
+										<option value="Not Received"
+											ng-selected="{{'Not Received' === postnewdealdata.underlying_DECLARATION}}">Not
+											Received</option>
+										<option value="Discrepancy"
+											ng-selected="{{'Discrepancy' === postnewdealdata.underlying_DECLARATION}}">Discrepancy</option>
+										<option value="Scan Copy Received"
+											ng-selected="{{'Scan Copy Received' === postnewdealdata.underlying_DECLARATION}}">Scan
+											Copy Received</option>
+
+								</select></td>
+								<td><input type="text" class="form-control datepicker1"
+									onmouseover="datepick()"
+									ng-model="postnewdealdata.under_DECLARATION_RECEIVE_DATE"
+									ng-change="dateDiff(postnewdealdata)" /></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.under_DECLARATION_AGING" /></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.under_DECLARATION_FREE_TEXT" /></td>
+								<td><select style="width: 100%;"
+									ng-model="postnewdealdata.underlying_DOCUMENT">
+										<option value="">select</option>
+										<option value="Received"
+											ng-selected="{{'Received' === postnewdealdata.underlying_DOCUMENT}}">Received</option>
+										<option value="Not Received"
+											ng-selected="{{'Not Received' === postnewdealdata.underlying_DOCUMENT}}">Not
+											Received</option>
+										<option value="Discrepancy"
+											ng-selected="{{'Discrepancy' === postnewdealdata.underlying_DOCUMENT}}">Discrepancy</option>
+										<option value="Scan Copy Received"
+											ng-selected="{{'Scan Copy Received' === postnewdealdata.underlying_DOCUMENT}}">Scan
+											Copy Received</option>
+
+								</select></td>
+								<td><input type="text" class="form-control datepicker1"
+									onmouseover="datepick()"
+									ng-model="postnewdealdata.under_DOCUMENT_RECEIVE_DATE"
+									ng-change="dateDiff(postnewdealdata)" /></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.underlying_DOCUMENT_AGING" /></td>
+
+								<td><input type="text"
+									ng-model="postnewdealdata.underlying_DOCUMENT_FREE_TEXT" /></td>
+								<td><select ng-show="postnewdealdata.fileType == 'option'">
+										<option value="">select</option>
+										<option value="Memo wise deal number"
+											ng-selected="{{'Memo wise deal number' === postnewdealdata.structure_TYPE}}">Memo
+											wise deal number</option>
+										<option value="Only S to be considered in BUY SELL Column"
+											ng-selected="{{'Only S to be considered in BUY SELL Column' === postnewdealdata.structure_TYPE}}">Only
+											S to be considered in BUY SELL Column</option>
+										<option
+											value="If other than INR in  CALL_CCY column then value to be displayed should be IMPORT"
+											ng-selected="{{'If other than INR in  CALL_CCY column then value to be displayed should be IMPORT' === postnewdealdata.nature_OF_UNDERLYING}}">If
+											other than INR in CALL_CCY column then value to be displayed
+											should be IMPORT</option>
+										<option
+											value="If other than INR in  PUT_CCY column then value to be displayed should be EXPORT"
+											ng-selected="{{'If other than INR in  PUT_CCY column then value to be displayed should be EXPORT' === postnewdealdata.nature_OF_UNDERLYING}}">If
+											other than INR in PUT_CCY column then value to be displayed
+											should be EXPORT</option>
+								</select></td>
+								<td><input type="text"
+									ng-model="postnewdealdata.underlying_REFERENCE" /></td>
+								<td><select style="width: 100%;"
+									ng-model="postnewdealdata.nature_OF_UNDERLYING">
+										<option value="">select</option>
+										<option value="ECB"
+											ng-selected="{{'ECB' === postnewdealdata.nature_OF_UNDERLYING}}">ECB</option>
+										<option value="FCTL"
+											ng-selected="{{'FCTL' === postnewdealdata.nature_OF_UNDERLYING}}">nature_OF_UNDERLYING</option>
+										<option value="Rupee Loan"
+											ng-selected="{{'Rupee Loan' === postnewdealdata.nature_OF_UNDERLYING}}">Rupee
+											Loan</option>
+										<option value="Rupee Bond"
+											ng-selected="{{'Rupee Bond' === postnewdealdata.nature_OF_UNDERLYING}}">Rupee
+											Bond</option>
+
+										<option value="FCY Bond"
+											ng-selected="{{'FCY Bond' === postnewdealdata.nature_OF_UNDERLYING}}">FCY
+											Bond</option>
+										<option value="Buyer's Credit"
+											ng-selected="{{'Buyers Credit' === postnewdealdata.nature_OF_UNDERLYING}}">Buyer's
+											Credit</option>
+										<option value="LC"
+											ng-selected="{{'LC' === postnewdealdata.nature_OF_UNDERLYING}}">LC</option>
+										<option value="Import Invoice"
+											ng-selected="{{'Import Invoice' === postnewdealdata.nature_OF_UNDERLYING}}">Import
+											Invoice</option>
+
+										<option value="Export Invoice"
+											ng-selected="{{'Export Invoice' === postnewdealdata.nature_OF_UNDERLYING}}">Export
+											Invoice</option>
+										<option value="MSA-Export"
+											ng-selected="{{'MSA-Export' === postnewdealdata.nature_OF_UNDERLYING}}">MSA-Export</option>
+										<option value="MSA-Import"
+											ng-selected="{{'MSA-Import' === postnewdealdata.nature_OF_UNDERLYING}}">MSA-Import</option>
+										<option value="PP-Export"
+											ng-selected="{{'PP-Export' === postnewdealdata.nature_OF_UNDERLYING}}">PP-Export</option>
+										<option value="PP-Import"
+											ng-selected="{{'PP-Import' === postnewdealdata.nature_OF_UNDERLYING}}">PP-Export</option>
+
+
+								</select></td>
+								<td>{{postnewdealdata.reportFileDate}}</td>
+							</tr>
+							<tr>
+								<button ng-click="updatePostNewDealDocumentation()">update</button>
+							</tr>
+
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- /.box-body -->
+	</div>
+</section>

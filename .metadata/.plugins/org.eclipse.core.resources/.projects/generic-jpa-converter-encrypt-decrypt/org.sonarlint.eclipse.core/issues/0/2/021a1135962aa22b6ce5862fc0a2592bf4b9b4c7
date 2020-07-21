@@ -1,0 +1,6 @@
+
+p
+java:S11557">Use isEmpty() to check whether the collection is empty or not.(äÅÄD8£ÿï‡ë.H∑aRMINORZ
+CODE_SMELL
+r
+java:S4684F"@Replace this persistent entity with a simple POJO or DTO object.(∫ßé±H∏aRCRITICALZVULNERABILITY

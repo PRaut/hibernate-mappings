@@ -1,0 +1,125 @@
+
+<html>
+<head>
+<title>Login | LCBN</title>
+<meta charset="utf-8">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-val.js"></script>
+<script src="js/pan.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* .logo {
+		margin-top: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.logo_site{
+		margin-top: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	} */
+.nq-um-navbar-img-cont {
+	height: 65px;
+	width: 64%;
+	margin-left: -230px;
+}
+
+.nq-um-navbar-extra-cont {
+	background-color: #97144d;
+	display: inline-block;
+	height: 3.6rem;
+	margin-left: -4px;
+	position: absolute;
+	width: 105%;
+}
+
+.glyphicon-info-sign {
+	cursor: help;
+}
+</style>
+
+</head>
+<!-- <body background="img/top_design.png"> -->
+<body>
+	<div class="container">
+		<!-- <div  class="logo" >
+			<image src="img/axis-bank-logo.png" alt="Axis Bank"/>
+<image src="img/axis-bar.png" alt="Axis Bank" class="responsive" width="1250" height="90" style="margin-top:-49px;"/>
+		</div>
+		<div  class="logo_site" >
+			<h1>LCBN</h1>
+		</div> -->
+		<nav class="navbar">
+			<img class="nq-um-navbar-img-cont" src="assets/img/axis-bar.png" />
+			<i class="nq-um-navbar-extra-cont"></i>
+		</nav>
+		<div class="row vertical-offset-100">
+			<div class="col-md-4 col-md-offset-4">
+				<h1 style="text-align: center">
+					<b>LCBN</b>
+				</h1>
+				<div id="loginMessage"></div>
+				<div class="panel panel-default" id="logDiv">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Employee Login &nbsp; <i data-toggle="tooltip"
+								title="Enter your employee id and AD password to log in"
+								class='glyphicon glyphicon-info-sign'></i>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<br>
+						<form id="loginForm">
+							<div class="form-group">
+								<input required class="form-control" id="loginUsername"
+									name="loginUsername" autocomplete="off" placeholder="Username"
+									type="text">
+							</div>
+							<div class="form-group">
+								<input required class="form-control" id="loginPassword"
+									name="loginPassword" autocomplete="off" placeholder="Password"
+									type="password">
+							</div>
+							<br>
+							<button
+								data-loading-text="<i class='fa fa-spinner fa-spin'></i> Logging in "
+								type="submit" style="background-color: #A03058" id="loginButton"
+								class="btn btn-lg btn-primary btn-block">Login</button>
+						</form>
+						<p>
+							<span id="subMessage"></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="roleSelector" style="visibility: hidden">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<label class="panel-title">Multiple Access Found</label>
+				</div>
+				<div class="panel-body" id="logDiv">
+					<br />
+					<p>Please select portal</p>
+					<form id="portSelect" style="margin-top: 30px">
+						<div id="mod_radio"></div>
+						<button data-loading-text="<i class='fa fa-spinner fa-spin '></i> Logging in " type="submit" style="margin-top: 45px"
+						 id="selectPort" class="btn nq-der-form-btn">
+							Enter
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+<script src="js/logger.js"></script>
+</html>

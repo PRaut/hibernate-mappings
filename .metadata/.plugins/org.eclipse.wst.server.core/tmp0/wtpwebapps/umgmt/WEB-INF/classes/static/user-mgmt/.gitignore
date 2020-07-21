@@ -1,0 +1,32 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+DerivativesWEB/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+
+nbbuild/
+
+nbdist/
+.nb-gradle/
+
+*.class
+
+.mvn/
+mvnw
+mvnw.cmd
+*.log
