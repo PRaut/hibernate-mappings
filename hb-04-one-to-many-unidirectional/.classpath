@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/antlr-2.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/byte-buddy-1.10.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/classmate-1.5.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/dom4j-2.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/FastInfoset-1.2.15.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/hibernate-commons-annotations-5.1.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/hibernate-core-5.4.14.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/istack-commons-runtime-3.0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/jandex-2.1.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/javassist-3.24.0-GA.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/javax.activation-api-1.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/javax.persistence-api-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/jaxb-api-2.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/jaxb-runtime-2.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/jboss-logging-3.3.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/stax-ex-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/nqe00205/Downloads/hibernate-release-5.4.14.Final/lib/required/txw2-2.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/prathamesh/softwares/installed/ojdbc14-10.2.0.4.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
